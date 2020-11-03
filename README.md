@@ -1,2 +1,4 @@
 # billy-bot
-A Discord bot written in Python
+A Discord bot written in Python.
+
+Relies on Discord.py and Nekos.py to function. 
