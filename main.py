@@ -1,3 +1,5 @@
+botToken = ('replace this with your token') #Variable to store the token in for ease-of-use
+
 import discord  # Importing libs
 import nekos
 from discord.ext import commands
@@ -166,4 +168,4 @@ async def commands(ctx): #"$Commands" command
     embed.add_field(name='$showerthought', value="Bot will provide a thought that you may think while showering.", inline=False)
     await ctx.send(embed=embed)#Bot sends embed
 
-bot.run('put token here') #Bot Token
+bot.run(botToken) #Bot Token
