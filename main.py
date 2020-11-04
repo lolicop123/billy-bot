@@ -1,4 +1,4 @@
-botToken = ('replace this with your token') #Variable to store the token in for ease-of-use
+botToken = ('input token here') #Variable to store the token in for ease-of-use
 
 import discord  # Importing libs
 import nekos
@@ -146,26 +146,43 @@ async def eightball(ctx, eightballquestion): #Magic 8-ball command (vey optimzie
 
 @bot.command()
 async def commands(ctx): #"$Commands" command
-    embed = discord.Embed(title="Commands:") #Setting up embed
-    embed.add_field(name="$commands: ", value="Bot will show this embed.", inline=False)
-    embed.add_field(name="$add (first num) (second num)", value="Bot will add 2 user-specified numbers.", inline=False)
-    embed.add_field(name="$subtract (first num) (second num)", value="Bot will subtract 2 user-specified numbers.",
-                    inline=False)
-    embed.add_field(name="$multiply (first num) (second num)", value="Bot will multiply 2 user-specified numbers.",
-                    inline=False)
-    embed.add_field(name="$divide (first num) (second num)", value="Bot will divide 2 user-specified numbers. ",
-                    inline=True)
+    embed = discord.Embed(title="Commands", color=0xff0000) #Setting up embed
+    embed.add_field(name="$funcommands", value="Bot will list all the fun commands", inline = False)
+    embed.add_field(name="$imagecommands", value="Bot will list all the image-based commands. ", inline=False)
+    embed.add_field(name="$mathcommands", value="Bot will list all the math-based commands. ", inline=False)
+    await ctx.send(embed=embed)#Bot sends embed
+
+@bot.command()
+async def funcommands(ctx): #Shows fun commands.
+    embed = discord.Embed(title="Commands:", color=0xff0000)  #Setting up embed
+    embed.add_field(name="$commands: ", value="Bot will show you every command.", inline=False)
     embed.add_field(name="$cool", value="Bot will tell you if you are cool or not.", inline=False)
     embed.add_field(name="$eightball (question)", value="Bot's magic 8-ball will answer all your questions...", inline=False)
     embed.add_field(name="$coinflip", value="Bot will flip a coin for you.", inline=False)
+    embed.add_field(name="$fact", value="Bot will provide a random fact.", inline=False)
+    embed.add_field(name='$owoify (your text in "" quotes)', value="Bot will owoify your text.", inline=False)
+    embed.add_field(name='$showerthought', value="Bot will provide a thought that you may think while showering.", inline=False)
+    await ctx.send(embed=embed)  #Bot sends embed
+
+@bot.command()
+async def imagecommands(ctx): #Shows image commands
+    embed = discord.Embed(title="Commands:", color=0xff0000)  #Setting up embed
+    embed.add_field(name="$commands: ", value="Bot will show you every command.", inline=False)
     embed.add_field(name="$cat", value="Bot will provide a random cat image.", inline=False)
     embed.add_field(name="$dog", value="Bot will provide a random dog image.", inline=False)
     embed.add_field(name="$goose", value="Bot will provide a random goose image.", inline=False)
     embed.add_field(name="$waifu", value="Bot will provide a random waifu.", inline=False)
     embed.add_field(name="$lizard", value="Bot will provide a random lizard image.", inline=False)
-    embed.add_field(name="$fact", value="Bot will provide a random fact.", inline=False)
-    embed.add_field(name='$owoify (your text in "" quotes)', value="Bot will owoify your text.", inline=False)
-    embed.add_field(name='$showerthought', value="Bot will provide a thought that you may think while showering.", inline=False)
-    await ctx.send(embed=embed)#Bot sends embed
+    await ctx.send(embed=embed)  #Bot sends embed
+
+@bot.command()
+async def mathcommands(ctx): #Shows math commands
+    embed = discord.Embed(title="Commands:", color=0xff0000)  #Setting up embed
+    embed.add_field(name="$commands: ", value="Bot will show you every command.", inline=False)
+    embed.add_field(name="$add (first num) (second num)", value="Bot will add 2 user-specified numbers.", inline=False)
+    embed.add_field(name="$subtract (first num) (second num)", value="Bot will subtract 2 user-specified numbers.", inline=False)
+    embed.add_field(name="$multiply (first num) (second num)", value="Bot will multiply 2 user-specified numbers.", inline=False)
+    embed.add_field(name="$divide (first num) (second num)", value="Bot will divide 2 user-specified numbers. ", inline=True)
+    await ctx.send(embed=embed)  #Bot sends embed
 
 bot.run(botToken) #Bot Token
