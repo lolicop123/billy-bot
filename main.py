@@ -14,27 +14,27 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=activity)
     print('We have logged in as {0.user}'.format(bot))
 
-@bot.event #This whole event should allow @bot.command's to go through after @bot.event's.
+@bot.event #This event should allow @bot.command's to go through after @bot.event's.
 async def on_message(message):
     await bot.process_commands(message)
 
-@bot.command()
+@bot.command() #Add some numbers up
 async def add(ctx, left: int, right: int): #User inputs 2 numbers
     await ctx.send(left + right) #Bot adds them together and sends answer
 
-@bot.command()
+@bot.command()#Reverse addition
 async def subtract(ctx, left: int, right: int): #User inputs 2 numbers
     await ctx.send(left - right) #Bot subtracts them and sends answer
 
-@bot.command()
+@bot.command() #Reverse times tables
 async def divide(ctx, left: int, right: int): #User inputs 2 numbers
     await ctx.send(left / right) #Bot divides them and sends answer
 
-@bot.command()
+@bot.command() #Times tables
 async def multiply(ctx, left: int, right: int): #User inputs 2 numbers
     await ctx.send(left * right) #Bot multiplies them and sends answer
 
-@bot.command()
+@bot.command() #Will tell the user if they are cool or not
 async def cool(ctx):
     randnum = randint(1, 2)
     if randnum == 1:
@@ -42,7 +42,7 @@ async def cool(ctx):
     else:
         await ctx.send("You are not cool!")
 
-@bot.command()
+@bot.command() #Will flip a coin (Heads/Tails)
 async def coinflip(ctx):
     randnum = randint(1, 2)
     if randnum == 1:
@@ -50,48 +50,54 @@ async def coinflip(ctx):
     else:
         await ctx.send("Tails!")
 
-@bot.command()
+@bot.command() #Meow Meow
 async def cat(ctx):
     catimg = nekos.cat()
     await ctx.send(catimg)
 
-@bot.command()
+@bot.command() #Interesting/random facts
 async def fact(ctx):
     fact = nekos.fact()
     await ctx.send(fact)
 
-@bot.command()
+@bot.command() #Woof Woof
 async def dog(ctx):
     dogimg = nekos.img("woof")
     await ctx.send(dogimg)
 
-@bot.command()
+@bot.command() #Honk Honk
 async def goose(ctx):
     gooseimg = nekos.img("goose")
     await ctx.send(gooseimg)
 
-@bot.command()
+@bot.command() #Anime Waifu generator!
 async def waifu(ctx):
     waifuimg = nekos.img("waifu")
     await ctx.send(waifuimg)
 
-@bot.command()
+@bot.command() #Cute Lizard images!
 async def lizard(ctx):
     lizardimg = nekos.img("lizard")
     await ctx.send(lizardimg)
 
-@bot.command()
+@bot.command() #hewwo daddy owo
 async def owoify(ctx, wantowoed):
     userowo = nekos.owoify(wantowoed)
     await ctx.send(userowo)
 
-@bot.command()
+@bot.command() #reddit.com/r/showerthoughts type of thing
 async def showerthought(ctx):
     shwrthought = nekos.why()
     await ctx.send(shwrthought)
 
 @bot.command()
-async def eightball(ctx, eightballquestion):
+async def originalcreator(ctx): #Secret command to show who actually coded the bot.
+    embed = discord.Embed(title="Creator:")  # Setting up embed
+    embed.add_field(name="verbes4#5201 ", value = "Also known as lolicop123 on Github", inline=False)
+    await ctx.send(embed=embed)  #Bot sends embed
+
+@bot.command()
+async def eightball(ctx, eightballquestion): #Magic 8-ball command (vey optimzied lol)
     randballnum = randint(1, 20)
     if randballnum == 1:
         await ctx.send("It is certain.")
@@ -139,26 +145,25 @@ async def eightball(ctx, eightballquestion):
 @bot.command()
 async def commands(ctx): #"$Commands" command
     embed = discord.Embed(title="Commands:") #Setting up embed
-    embed.add_field(name="$commands: ", value="Billy will show this embed.", inline=False)
-    embed.add_field(name="$add (first num) (second num)", value="Billy will add 2 user-specified numbers.", inline=False)
-    embed.add_field(name="$subtract (first num) (second num)", value="Billy will subtract 2 user-specified numbers.",
+    embed.add_field(name="$commands: ", value="Bot will show this embed.", inline=False)
+    embed.add_field(name="$add (first num) (second num)", value="Bot will add 2 user-specified numbers.", inline=False)
+    embed.add_field(name="$subtract (first num) (second num)", value="Bot will subtract 2 user-specified numbers.",
                     inline=False)
-    embed.add_field(name="$multiply (first num) (second num)", value="Billy will multiply 2 user-specified numbers.",
+    embed.add_field(name="$multiply (first num) (second num)", value="Bot will multiply 2 user-specified numbers.",
                     inline=False)
-    embed.add_field(name="$divide (first num) (second num)", value="Billy will divide 2 user-specified numbers. ",
+    embed.add_field(name="$divide (first num) (second num)", value="Bot will divide 2 user-specified numbers. ",
                     inline=True)
-    embed.add_field(name="$cool", value="Billy will tell you if you are cool or not.", inline=False)
-    embed.add_field(name="$eightball (question)", value="Billy's magic 8-ball will answer all your questions...", inline=False)
-    embed.add_field(name="$coinflip", value="Billy will flip a coin for you.", inline=False)
-    embed.add_field(name="$cat", value="Billy will provide a random cat image.", inline=False)
-    embed.add_field(name="$dog", value="Billy will provide a random dog image.", inline=False)
-    embed.add_field(name="$goose", value="Billy will provide a random goose image.", inline=False)
-    embed.add_field(name="$waifu", value="Billy will provide a random waifu.", inline=False)
-    embed.add_field(name="$lizard", value="Billy will provide a random lizard image.", inline=False)
-    embed.add_field(name="$fact", value="Billy will provide a random fact.", inline=False)
-    embed.add_field(name='$owoify (your text in "" quotes)', value="Billy will owoify your text.", inline=False)
-    embed.add_field(name='$showerthought', value="Billy will provide a thought that you may think while showering.", inline=False)
-    embed.set_footer(text="Bot by verbes4#5201 <3")
+    embed.add_field(name="$cool", value="Bot will tell you if you are cool or not.", inline=False)
+    embed.add_field(name="$eightball (question)", value="Bot's magic 8-ball will answer all your questions...", inline=False)
+    embed.add_field(name="$coinflip", value="Bot will flip a coin for you.", inline=False)
+    embed.add_field(name="$cat", value="Bot will provide a random cat image.", inline=False)
+    embed.add_field(name="$dog", value="Bot will provide a random dog image.", inline=False)
+    embed.add_field(name="$goose", value="Bot will provide a random goose image.", inline=False)
+    embed.add_field(name="$waifu", value="Bot will provide a random waifu.", inline=False)
+    embed.add_field(name="$lizard", value="Bot will provide a random lizard image.", inline=False)
+    embed.add_field(name="$fact", value="Bot will provide a random fact.", inline=False)
+    embed.add_field(name='$owoify (your text in "" quotes)', value="Bot will owoify your text.", inline=False)
+    embed.add_field(name='$showerthought', value="Bot will provide a thought that you may think while showering.", inline=False)
     await ctx.send(embed=embed)#Bot sends embed
 
 bot.run('put token here') #Bot Token

@@ -3,7 +3,7 @@ A basic (and trash) Discord bot written in Python.
 
 Relies on [Discord.py](https://discordpy.readthedocs.io/en/latest/) and [Nekos.py](https://github.com/Nekos-life/nekos.py) to function. 
 
-#Installing:
+# Installing:
 This assumes you have Python3 + Pip set up, and that you are on a Windows machine.
 1) Open Command Prompt as administrator
 2) Type `py -3 -m pip install -U discord.py` and hit enter
