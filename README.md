@@ -14,4 +14,4 @@ This assumes you have Python3 + Pip set up, and that you are on a Windows machin
 6) Open a Command Prompt in the folder you downloaded Billy-Bot and type `py -3 -m main.py`
 ![Billy Bot Running](https://verbes4.owns-a-furry.club/65bcF16.png)
 
-More in-depth tutorial coming later. If you need help, message me on Discord: verbes4#5201
+More in-depth tutorial coming later. If you need help, message me on Discord: azunyaa & verbes4#5201
