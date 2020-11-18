@@ -1,6 +1,6 @@
-botToken = ('input token here') #Variable to store the token in for ease-of-use
+botToken = ('replace this with your token') #Variable to store the token in for ease-of-use
 
-import discord  # Importing libs
+import discord  #Importing libs
 import nekos
 from discord.ext import commands
 from random import *
@@ -52,6 +52,10 @@ async def coinflip(ctx):
     else:
         await ctx.send("Tails!")
 
+@bot.command() #Will send a Rick-Roll
+async def token(ctx):
+    await ctx.send("Here is my Token: <https://www.youtube.com/watch?v=dQw4w9WgXcQ>")
+
 @bot.command() #Meow Meow
 async def cat(ctx):
     catimg = nekos.cat()
@@ -87,19 +91,42 @@ async def owoify(ctx, wantowoed):
     userowo = nekos.owoify(wantowoed)
     await ctx.send(userowo)
 
+@bot.command() #Make the Bot say stuff
+async def say(ctx, wordsToSay):
+    await ctx.send(wordsToSay)
+
 @bot.command() #reddit.com/r/showerthoughts type of thing
 async def showerthought(ctx):
     shwrthought = nekos.why()
     await ctx.send(shwrthought)
 
-@bot.command()
-async def originalcreator(ctx): #Secret command to show who actually coded the bot.
+@bot.command() #Secret command to show who actually coded the bot.
+async def originalcreator(ctx):
     embed = discord.Embed(title="Creator:")  # Setting up embed
     embed.add_field(name="verbes4#5201 ", value = "Also known as lolicop123 on Github", inline=False)
     await ctx.send(embed=embed)  #Bot sends embed
 
-@bot.command()
-async def eightball(ctx, eightballquestion): #Magic 8-ball command (vey optimzied lol)
+@bot.command() #monika
+async def monika(ctx):
+    await ctx.send("Here is Best Doki!")
+    randMonika = randint(1,6)
+    if randMonika == 1:
+        await ctx.send("https://monikas.secks.club/dE4Bdf0.jpg")
+    elif randMonika == 2:
+        await ctx.send("https://monikas.secks.club/9C5DC77.jpg")
+    elif randMonika == 3:
+        await ctx.send("https://monikas.secks.club/B909CcC.jpg")
+    elif randMonika == 4:
+        await ctx.send("https://monikas.secks.club/F1C36af.png")
+    elif randMonika == 5:
+        await ctx.send("https://monikas.secks.club/EfDAC9a.jpg")
+    elif randMonika == 6:
+        await ctx.send("https://monikas.secks.club/4a5Ee9d.png")
+    else:
+        await ctx.send("An error has occured.")
+
+@bot.command() #Magic 8-ball command (vey optimzied lol)
+async def eightball(ctx, eightballquestion):
     randballnum = randint(1, 20)
     if randballnum == 1:
         await ctx.send("It is certain.")
@@ -144,16 +171,17 @@ async def eightball(ctx, eightballquestion): #Magic 8-ball command (vey optimzie
     else:
         await ctx.send("An error has occurred.")
 
-@bot.command()
-async def commands(ctx): #"$Commands" command
+@bot.command() #"$Commands" command
+async def commands(ctx):
     embed = discord.Embed(title="Commands", color=0xff0000) #Setting up embed
     embed.add_field(name="$funcommands", value="Bot will list all the fun commands", inline = False)
     embed.add_field(name="$imagecommands", value="Bot will list all the image-based commands. ", inline=False)
     embed.add_field(name="$mathcommands", value="Bot will list all the math-based commands. ", inline=False)
+    embed.set_footer(text="Bot by verbes4#5201 <3")
     await ctx.send(embed=embed)#Bot sends embed
 
-@bot.command()
-async def funcommands(ctx): #Shows fun commands.
+@bot.command() #Shows fun commands.
+async def funcommands(ctx):
     embed = discord.Embed(title="Commands:", color=0xff0000)  #Setting up embed
     embed.add_field(name="$commands: ", value="Bot will show you every command.", inline=False)
     embed.add_field(name="$cool", value="Bot will tell you if you are cool or not.", inline=False)
@@ -162,10 +190,13 @@ async def funcommands(ctx): #Shows fun commands.
     embed.add_field(name="$fact", value="Bot will provide a random fact.", inline=False)
     embed.add_field(name='$owoify (your text in "" quotes)', value="Bot will owoify your text.", inline=False)
     embed.add_field(name='$showerthought', value="Bot will provide a thought that you may think while showering.", inline=False)
+    embed.add_field(name='$say (your text in "" quotes)', value="Bot will say whatever you want.", inline=False)
+    embed.add_field(name='$token', value="Bot will give you his Token!", inline=False)
+    embed.set_footer(text="Bot by verbes4#5201 <3")
     await ctx.send(embed=embed)  #Bot sends embed
 
-@bot.command()
-async def imagecommands(ctx): #Shows image commands
+@bot.command() #Shows image commands
+async def imagecommands(ctx):
     embed = discord.Embed(title="Commands:", color=0xff0000)  #Setting up embed
     embed.add_field(name="$commands: ", value="Bot will show you every command.", inline=False)
     embed.add_field(name="$cat", value="Bot will provide a random cat image.", inline=False)
@@ -173,10 +204,12 @@ async def imagecommands(ctx): #Shows image commands
     embed.add_field(name="$goose", value="Bot will provide a random goose image.", inline=False)
     embed.add_field(name="$waifu", value="Bot will provide a random waifu.", inline=False)
     embed.add_field(name="$lizard", value="Bot will provide a random lizard image.", inline=False)
+    embed.add_field(name="$monika", value="Bot will provide an image of Best Doki.", inline=False)
+    embed.set_footer(text="Bot by verbes4#5201 <3")
     await ctx.send(embed=embed)  #Bot sends embed
 
-@bot.command()
-async def mathcommands(ctx): #Shows math commands
+@bot.command() #Shows math commands
+async def mathcommands(ctx):
     embed = discord.Embed(title="Commands:", color=0xff0000)  #Setting up embed
     embed.add_field(name="$commands: ", value="Bot will show you every command.", inline=False)
     embed.add_field(name="$add (first num) (second num)", value="Bot will add 2 user-specified numbers.", inline=False)
@@ -185,4 +218,4 @@ async def mathcommands(ctx): #Shows math commands
     embed.add_field(name="$divide (first num) (second num)", value="Bot will divide 2 user-specified numbers. ", inline=True)
     await ctx.send(embed=embed)  #Bot sends embed
 
-bot.run(botToken) #Bot Token
+bot.run(botToken) #Runs the Bot
